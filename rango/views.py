@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
+from rango.forms import PageForm
 from django.shortcuts import redirect
 
 
@@ -41,9 +42,5 @@ def add_category(request):
         else:
             print(form.errors)
     return render(request, 'rango/add_category.html', {'form': form})
-
-
-
-
 
 
