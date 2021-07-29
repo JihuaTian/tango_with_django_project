@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
+from django.shortcuts import redirect
+
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
