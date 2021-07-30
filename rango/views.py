@@ -1,7 +1,7 @@
 from enum import auto
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from rango.models import Category, UserProfile
 from rango.models import Page
@@ -122,3 +122,7 @@ def user_login(request):
 def restricted(request):
     return HttpResponse("Since you're logged in, you can see this text!")   
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('rango:index'))
